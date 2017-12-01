@@ -1,0 +1,43 @@
+header
+  div.column
+    div.row.searchbar
+      div.column.search-input
+        div.row
+          i(class="fa fa-search")
+          form(method="post" action="/search")
+            input(type="text" name="searchterm" placeholder="search for...")
+      i(class="fa fa-bars menu-icon")
+    div.column.banner
+      img(src='static/img/logo@2x.png')
+      p Your Community Exchange for Local Food & Ag
+    div.row.menubar
+      i(class="fa fa-bars")
+        span.space MENU
+    if !member
+      div.column.login
+        i(class="fa fa-user")
+          span.space
+            button(id='login-button') MEMBER LOGIN
+    div(id="loginModal" class="modal")
+      div(class="modal-content")
+        span(class="close") x
+        p New to the site? Create an Account 
+          button(id='register-button') Create an Account
+        form.column(method='post' action='/login')
+          input(type='hidden' name="_csrf" value=csrfToken)
+          input(type="email" name="email" placeholder="Email" required=true)
+          input(type="password" name="password" placeholder="Password" required=true)
+          input(type='submit')
+    div(id="registerModal" class="modal")
+      div(class="modal-content")
+        span(class="close") x
+        p Already have an account? 
+          button(id='login-button2') Login
+        form.column(method='post' action='/register')
+          input(type='hidden' name="_csrf" value=csrfToken)
+          input(type="text" name="first_name" placeholder="First Name" required=true)
+          input(type="text" name="last_name" placeholder="Last Name" required=true)
+          input(type="email" name="email" placeholder="Email" required=true)
+          input(type="password" name="password" placeholder="Password" required=true)
+          input(type='submit')
+  script(src='static/js/register.js')

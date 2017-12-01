@@ -1,0 +1,23 @@
+extends layout
+
+block main
+  div.column.alert-container
+    div.column.post
+      h1 Post an Alert
+      if member
+        h3 Hi #{member}!
+      p First time posting an alert or need a refresher?
+      a(href='https://sfbay.cropmobster.com/how-it-works/#posting-alerts') Watch our video walkthrough!
+      br
+      if !member
+        p You need to be logged in to submit alerts.
+          a(href='')
+            |  Please login.
+      
+  div.row
+    img(id='image' src="")
+    div.column
+      div(id='electionUpdate')
+      i(id='up' class="fa fa-thumbs-o-up")
+      i(id='down' class="fa fa-thumbs-o-down")
+  script(src='static/js/postAlert.js')
