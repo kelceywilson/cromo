@@ -7,11 +7,12 @@ const routes = require('./routes/routes.js')
 const logger = require('morgan')
 
 const app = express()
+app.set('port', (process.env.PORT || 5000));
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use('/static', express.static('public'))
 
+app.use('/static', express.static('public'))
 app.set('view engine', 'pug')
 
 app.use(sessions({
@@ -64,6 +65,10 @@ app.use((err, req, res, next) => {
   })
 })
 
-app.listen(3000, () => {
-  console.log('listening on 3000')
-})
+// app.listen(3000, () => {
+//   console.log('listening on 3000')
+// })
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
