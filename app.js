@@ -20,10 +20,6 @@ app.use(sessions({
   cookieName: 'session',
   secret: 'some_random_string',
   duration: 30 * 60 * 1000
-  // activeDuration: 30 * 60 * 1000  // optionals
-  // httpOnly: true, // don't let JS code access cookies
-  // secure: true, // only set cookies over https
-  // ephemeral: true // destroy cookies when browser closes
 }))
 app.use(csrf()) // this needs to be above app.use(routes) - why?
 // app.use((req, res, next) => {

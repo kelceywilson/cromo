@@ -1,10 +1,12 @@
 
 const pgp = require('pg-promise')()
 
-const connection = process.env.NODE_ENV === 'test'
-  ? 'postgres:///cromo_test'
-  : 'postgres://stmgyhyohsbljd:8bda8f3aedb69622b3c221863f2e20ff26667450da7fde2bb
-fac839ca14f9539@ec2-107-22-211-182.compute-1.amazonaws.com:5432/d3odcm6cej7js'
+// const connection = process.env.NODE_ENV === 'test'
+//   ? 'postgres:///cromo_test'
+//   : 'postgres://stmgyhyohsbljd:8bda8f3aedb69622b3c221863f2e20ff26667450da7fde2bb
+// fac839ca14f9539@ec2-107-22-211-182.compute-1.amazonaws.com:5432/d3odcm6cej7js'
+
+const connection = process.env.DATABASE_URL || 'postgres:///cromo'
 
 const db = pgp(connection)
 
